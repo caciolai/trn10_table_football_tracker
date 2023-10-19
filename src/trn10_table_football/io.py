@@ -1,5 +1,5 @@
-from typing import List
-
+import pathlib
+import os
 import pandas as pd
 
 from trn10_table_football.constants import DEFAULT_MATCHES_FILE_PATH
@@ -20,4 +20,7 @@ def load_matches(path: str = DEFAULT_MATCHES_FILE_PATH) -> pd.DataFrame:
 
 
 def save_matches(matches: pd.DataFrame, path: str = DEFAULT_MATCHES_FILE_PATH):
+    if not pathlib.Path(path).parent.exists():
+        os.makedirs(pathlib.Path(path).parent)
+    
     matches.to_csv(path, index=False)
