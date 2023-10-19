@@ -30,7 +30,7 @@ match_df = st.data_editor(
     match_df, 
     num_rows="dynamic",
     column_config={
-        "Date": st.column_config.DateColumn("date", width="small"),
+        "Date": st.column_config.DateColumn("Date", width="medium"),
         "Team Blu": st.column_config.TextColumn("Team Blu", width="medium"),
         "Team Red": st.column_config.TextColumn("Team Red", width="medium"),
         "Score": st.column_config.TextColumn("Score", width="small")
@@ -55,7 +55,7 @@ st.dataframe(
     leaderboard_df,
     hide_index=True,
     column_config={
-        "Team": st.column_config.TextColumn("Team", width="small"),
+        "Team": st.column_config.TextColumn("Team", width="medium"),
         "Wins": st.column_config.NumberColumn("Wins", width="small"),
         "Draws": st.column_config.NumberColumn("Draws", width="small"),
         "Losses": st.column_config.NumberColumn("Losses", width="small"),

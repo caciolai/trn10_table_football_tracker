@@ -2,11 +2,14 @@ import logging
 
 from trn10_table_football.constants import LOG_FILE
 
+
 def setup_logger(root=None):
     logger = logging.getLogger(root)
     logger.setLevel(logging.INFO)
 
-    format = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    format = logging.Formatter(
+        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    )
 
     consolehandler = logging.StreamHandler()
     consolehandler.setLevel(logging.INFO)
