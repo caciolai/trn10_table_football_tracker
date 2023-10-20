@@ -2,7 +2,7 @@ from typing import Tuple
 
 import pandas as pd
 
-from trn10_table_football.constants import TEAM_SEP_CHAR
+from trn10_table_football.constants import TEAM_SEP_CHAR, SCORE_SEP_CHAR
 from trn10_table_football.utils import setup_logger
 
 logger = setup_logger(__name__)
