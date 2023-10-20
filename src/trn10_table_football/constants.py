@@ -7,3 +7,5 @@ LOG_FILE = Path(
 
 DEFAULT_MATCHES_FILE_PATH = "matches.csv"
 DEFAULT_MATCHES_S3_BUCKET = "trn10-table-football-tracker"
+
+TEAM_SEP_CHAR = ","

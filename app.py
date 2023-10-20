@@ -2,7 +2,8 @@ import pandas as pd
 import streamlit as st
 
 from trn10_table_football.io import load_matches, save_matches
-from trn10_table_football.statistics import team_leaderboard
+from trn10_table_football.statistics import (player_leaderboard,
+                                             team_leaderboard)
 from trn10_table_football.utils import setup_logger
 
 logger = setup_logger(__name__)
@@ -59,6 +60,32 @@ st.dataframe(
     hide_index=True,
     column_config={
         "Team": st.column_config.TextColumn("Team", width="medium"),
+        "Wins": st.column_config.NumberColumn("Wins", width="small"),
+        "Draws": st.column_config.NumberColumn("Draws", width="small"),
+        "Losses": st.column_config.NumberColumn("Losses", width="small"),
+        "Points": st.column_config.NumberColumn("Points", width="small"),
+    },
+)
+
+st.header("Player leaderboard")
+player_leaderboard_df = player_leaderboard(edited_df)
+
+if player_leaderboard_df is None:
+    # Create empty DataFrame with specific column names & types
+    player_leaderboard_df = pd.DataFrame(
+        data={
+            "Players": pd.Series(dtype="str"),
+            "Wins": pd.Series(dtype="int"),
+            "Draws": pd.Series(dtype="int"),
+            "Losses": pd.Series(dtype="int"),
+            "Points": pd.Series(dtype="int"),
+        },
+    )
+st.dataframe(
+    player_leaderboard_df,
+    hide_index=True,
+    column_config={
+        "Player": st.column_config.TextColumn("Team", width="medium"),
         "Wins": st.column_config.NumberColumn("Wins", width="small"),
         "Draws": st.column_config.NumberColumn("Draws", width="small"),
         "Losses": st.column_config.NumberColumn("Losses", width="small"),
