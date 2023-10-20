@@ -15,7 +15,7 @@ class MatchPoints:
 
 
 def assign_points(score: str) -> Tuple[int, int]:
-    b, r = score.split("-")
+    b, r = score.split(SCORE_SEP_CHAR)
     b = int(b.strip())
     r = int(r.strip())
 
