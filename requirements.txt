@@ -1,5 +1,6 @@
 streamlit
 pandas
+pydantic
 s3fs
 st-files-connection
 -e .

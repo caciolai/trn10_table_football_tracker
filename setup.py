@@ -9,6 +9,7 @@ setup(
     requires=[
         "pandas",
         "streamlit",
+        "pydantic",
         "st_files_connection",
         "s3fs"
     ]
