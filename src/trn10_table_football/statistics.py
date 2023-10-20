@@ -1,5 +1,10 @@
 from typing import Tuple
+
 import pandas as pd
+
+from trn10_table_football.utils import setup_logger
+
+logger = setup_logger(__name__)
 
 
 class MatchPoints:
@@ -26,14 +31,12 @@ def assign_points(score: str) -> Tuple[int, int]:
     return points_blu, points_red
 
 
-def leaderboard(match_df: pd.DataFrame) -> pd.DataFrame:
+def team_leaderboard(match_df: pd.DataFrame) -> pd.DataFrame:
     if match_df is None or len(match_df) <= 0:
         return None
 
     # For each match, find out points
-    teams = set(
-        match_df["Team Blu"].unique()
-    ).union(match_df["Team Red"].unique())
+    teams = set(match_df["Team Blu"].unique()).union(match_df["Team Red"].unique())
 
     team_stats = {
         team: {
@@ -70,8 +73,7 @@ def leaderboard(match_df: pd.DataFrame) -> pd.DataFrame:
     if len(leaderboard_df) <= 0:
         return None
 
-    leaderboard_df = leaderboard_df.reset_index(
-    ).rename(columns={"index": "Team"})
+    leaderboard_df = leaderboard_df.reset_index().rename(columns={"index": "Team"})
 
     leaderboard_df = leaderboard_df.sort_values("Points", ascending=False)
 

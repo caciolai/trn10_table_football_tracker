@@ -8,6 +8,8 @@ setup(
     package_data={},
     requires=[
         "pandas",
-        "streamlit"
+        "streamlit",
+        "st_files_connection",
+        "s3fs"
     ]
 )

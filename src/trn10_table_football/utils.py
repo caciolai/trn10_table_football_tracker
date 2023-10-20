@@ -7,9 +7,7 @@ def setup_logger(root=None):
     logger = logging.getLogger(root)
     logger.setLevel(logging.INFO)
 
-    format = logging.Formatter(
-        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-    )
+    format = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 
     consolehandler = logging.StreamHandler()
     consolehandler.setLevel(logging.INFO)
@@ -19,7 +17,7 @@ def setup_logger(root=None):
     filehandler = logging.FileHandler(LOG_FILE)
     filehandler.setLevel(logging.DEBUG)
     filehandler.setFormatter(format)
-    logger.addHandler(filehandler)
+    # logger.addHandler(filehandler)
 
     # send logs to root logger, which will decide where all logs are stored
     logger.propagate = False
